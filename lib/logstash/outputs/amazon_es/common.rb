@@ -88,7 +88,7 @@ module LogStash; module Outputs; class AmazonElasticSearch;
       if action == 'update'
         params[:_upsert] = LogStash::Json.load(event.sprintf(@upsert)) if @upsert != ""
         params[:_script] = event.sprintf(@script) if @script != ""
-        params[:_retry_on_conflict] = @retry_on_conflict
+        params[:retry_on_conflict] = @retry_on_conflict
       end
 
       if @version
